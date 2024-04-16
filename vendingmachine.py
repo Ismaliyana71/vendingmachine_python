@@ -17,19 +17,19 @@ class VendingMachine:
 
     def buy_item(drink, item, amount):
         if item not in drink.items:
-            print("Item not available.") #If the item entered is not in the list
+            print("Item not available.") #if the item entered is not in the list
             return
 
         item_price = drink.items[item]
         if amount < item_price:
-            print("Insufficient amount. Please insert more money.")
+            print("Insufficient amount. Please insert more money.")  #if the amount entered by customer less than the price
             return
 
         change = amount - item_price
-        RM_note = [100, 50, 20, 10, 5, 1]
+        RM_note = [100, 50, 20, 10, 5, 1]  #type of RM note available for the changes
         returned_notes = {}
 
-        #formula for choosing biggest RMnote from the change
+        #formula to release the least amount of notes
         for note in RM_note:
             if change >= note:
                 count = change // note
